@@ -7,9 +7,9 @@ module Middleman
         super
 
         env = options.env
-        ::Dotenv.load File.join(app.root, env)
+        ::Dotenv.overload File.join(app.root, env)
         app.before do
-          ::Dotenv.load File.join(self.root, env)
+          ::Dotenv.overload File.join(self.root, env)
         end
       end
     end
